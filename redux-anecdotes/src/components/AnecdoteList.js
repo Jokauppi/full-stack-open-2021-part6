@@ -3,11 +3,7 @@ import { vote } from '../reducers/anecdoteReducer'
 
 const AnecdoteList = () => {
   const dispatch = useDispatch()
-  const anecdotes = useSelector(state => state)
-
-  const voteAnecdote = event => {
-    dispatch(vote(event.target.getAttribute('id')))
-  }
+  const anecdotes = useSelector(state => state.anecdotes)
 
   return (
     <div>
@@ -18,7 +14,7 @@ const AnecdoteList = () => {
           </div>
           <div>
             has {anecdote.votes}
-            <button onClick={voteAnecdote} id={anecdote.id}>vote</button>
+            <button onClick={event => dispatch(vote(event.target.getAttribute('id')))} id={anecdote.id}>vote</button>
           </div>
         </div>
       )}
