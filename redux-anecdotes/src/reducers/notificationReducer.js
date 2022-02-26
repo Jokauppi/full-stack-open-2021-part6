@@ -6,18 +6,17 @@ const asObject = (notification) => {
   }
 }
 
-const initialState = asObject('Initial notification')
+const initialState = asObject('')
 
 const notificationSlice = createSlice({
   name: 'notification',
   initialState,
   reducers: {
     notify(state, action) {
-      const notification = action.payload
-      state = asObject(notification)
+      return asObject(action.payload)
     }
-  },
+  }
 })
 
-export const {notify} = notificationSlice.actions
+export const { notify } = notificationSlice.actions
 export default notificationSlice.reducer
