@@ -5,10 +5,11 @@ import { notify } from '../reducers/notificationReducer'
 const AnecdoteList = () => {
   const dispatch = useDispatch()
   const anecdotes = useSelector(state => state.anecdotes)
+  const filter = useSelector(state => state.filter.text)
 
   return (
     <div>
-      {anecdotes.map(anecdote =>
+      {anecdotes.filter(anecdote => anecdote.content.includes(filter)).map(anecdote =>
         <div key={anecdote.id}>
           <div>
             {anecdote.content}
@@ -22,7 +23,8 @@ const AnecdoteList = () => {
               }} id={anecdote.id} name={anecdote.content}>vote</button>
           </div>
         </div>
-      )}
+        )
+      }
     </div>
   )
 }
