@@ -1,7 +1,7 @@
-import AnecdoteForm from './components/AnecdoteForm'
+import ConnectedAnecdoteForm from './components/AnecdoteForm'
 import AnecdoteList from './components/AnecdoteList'
-import Notification from './components/Notification'
-import Filter from './components/Filter'
+import ConnectedNotification from './components/Notification'
+import ConnectedFilter from './components/Filter'
 
 import { useEffect } from 'react'
 import { initializeAnecdotes } from './reducers/anecdoteReducer'
@@ -17,10 +17,10 @@ const App = () => {
   return (
     <div>
       <h2>Anecdotes</h2>
-      <Notification />
-      <Filter />
+      <ConnectedNotification />
+      <ConnectedFilter />
       <AnecdoteList />
-      <AnecdoteForm />
+      <ConnectedAnecdoteForm />
     </div>
   )
 }
