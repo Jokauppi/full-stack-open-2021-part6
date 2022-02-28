@@ -1,17 +1,7 @@
 import { connect } from 'react-redux'
-import { useEffect } from 'react'
-import { notify } from '../reducers/notificationReducer'
 
 
-const Notification = ({notification, notify}) => {
-
-  useEffect(() => {
-    if (notification !== '') {
-      setTimeout(() => {
-        notify('')
-      }, 5000)
-    }
-  }, [])
+const Notification = ({notification}) => {
 
   const style = {
     border: 'solid',
@@ -36,9 +26,5 @@ const mapStateToProps = (state) => {
   return {notification: state.notification.content}
 }
 
-const mapDispatchToProps = {
-  notify,
-}
-
-const ConnectedNotification = connect(mapStateToProps, mapDispatchToProps)(Notification)
+const ConnectedNotification = connect(mapStateToProps, null)(Notification)
 export default ConnectedNotification
